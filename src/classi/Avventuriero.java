@@ -3,10 +3,14 @@ package classi;
 
 import java.util.Random;
 
+import interfacce.Donna;
 import interfacce.Human;
+import interfacce.Uomo;
+import main.main.Sesso;
+import main.main.Tipo;
 import utils.HumanUtils;
 
-public class Avventuriero implements Human{
+public class Avventuriero implements Uomo{
 	
 	private Popolazione popolazione;
 	private Sesso sesso;
@@ -14,7 +18,7 @@ public class Avventuriero implements Human{
 	private int geneDominante;
 	private int geneRecessivo;
 	private int numerofigli;
-	private Human consorte;
+	private Donna moglie;
 	private int avventure;
 	
 	private Random random = new Random();
@@ -30,7 +34,7 @@ public class Avventuriero implements Human{
 		this.numerofigli = 1;
 		this.avventure = random.nextInt(21);
 		
-		this.consorte = null;
+		this.moglie = null;
 	}
 
 	@Override
@@ -61,8 +65,8 @@ public class Avventuriero implements Human{
 	@Override
 	public void premioFigli(Human donna) {
 		if(donna.getTipo() == Tipo.Spregiudicata) {
-			this.geneDominante += 15;
-			this.geneRecessivo -= 15;
+			this.geneDominante += main.main.A;
+			this.geneRecessivo -= main.main.A;
 		}
 	}
 
@@ -72,28 +76,23 @@ public class Avventuriero implements Human{
 	}
 
 	@Override
-	public boolean corteggia() {
+	public boolean corteggia() {	
 		this.avventure -=1;
-		Human donna = HumanUtils.getDonnaCasuale(this.popolazione);
+		Donna donna = HumanUtils.getDonnaCasuale(this.popolazione);
 		if (donna.corteggiata(this)) {
-			this.consorte = donna;
+			this.moglie = donna;
 			return true;
 		}
 		return false;
 	}
-	@Override
-	public boolean corteggiata(Human uomo) {
-		return false;
-	}
 
-	@Override
 	public int getAvventure() {
 		return this.avventure;
 	}
 
 	@Override
-	public Human getConsorte() {
-		return this.consorte;
+	public Donna getMoglie() {
+		return this.moglie;
 	}
 
 

@@ -1,10 +1,14 @@
 package classi;
 
 
+import interfacce.Donna;
 import interfacce.Human;
+import interfacce.Uomo;
+import main.main.Sesso;
+import main.main.Tipo;
 import utils.HumanUtils;
 
-public class Morigerato implements Human{
+public class Morigerato implements Uomo{
 	
 	
 	private Popolazione popolazione;
@@ -13,7 +17,7 @@ public class Morigerato implements Human{
 	private int geneDominante;
 	private int geneRecessivo;
 	private int numerofigli;
-	private Human consorte;
+	private Donna moglie;
 	
 	
 	public Morigerato(Popolazione popolazione, int geneDominante, int geneRecessivo) {
@@ -25,7 +29,7 @@ public class Morigerato implements Human{
 		this.geneRecessivo = geneRecessivo;
 		
 		this.numerofigli = HumanUtils.randomFigli();
-		this.consorte = null;
+		this.moglie = null;
 	}
 
 	@Override
@@ -60,38 +64,27 @@ public class Morigerato implements Human{
 	@Override
 	public void premioFigli(Human donna) {
 		if (donna.getTipo() == Tipo.Prudente) {
-			this.geneDominante += 2;
-			this.geneRecessivo -= 2;
+			this.geneDominante += ((main.main.A - main.main.B)/(2-main.main.C));
+			this.geneRecessivo -= ((main.main.A - main.main.B)/(2-main.main.C));
 		}
 		if (donna.getTipo() == Tipo.Spregiudicata) {
-			this.geneDominante += 5;
-			this.geneRecessivo -= 5;
+			this.geneDominante += ((main.main.A - main.main.B)/2);
+			this.geneRecessivo -= ((main.main.A - main.main.B)/2);
 		}
 	}
 
 	@Override
 	public boolean corteggia() {
-		Human donna = HumanUtils.getDonnaCasuale(this.popolazione);
+		Donna donna = HumanUtils.getDonnaCasuale(this.popolazione);
 		if (donna.corteggiata(this)) {
-			this.consorte = donna;
+			this.moglie = donna;
 			return true;
 		}
 		return false;
 	}
-	
-	//Metodo per sole donne
-	@Override
-	public boolean corteggiata(Human uomo) {
-		return false;
-	}
 
 	@Override
-	public int getAvventure() {
-		return 0;
-	}
-
-	@Override
-	public Human getConsorte() {
-		return this.consorte;
+	public Donna getMoglie() {
+		return this.moglie;
 	}	
 }
