@@ -11,6 +11,7 @@ import utils.HumanUtils;
 
 public class Prudente implements Donna {
 	
+	private Evoluzione evoluzione;
 	private Popolazione popolazione;
 	private Sesso sesso;
 	private Tipo tipo;
@@ -19,8 +20,9 @@ public class Prudente implements Donna {
 	private int numerofigli;
 	private Random random = new Random();
 	
-	public Prudente(Popolazione popolazione, int geneDominante, int geneRecessivo) {
+	public Prudente(Evoluzione evoluzione, Popolazione popolazione, int geneDominante, int geneRecessivo) {
 		
+		this.evoluzione = evoluzione;
 		this.popolazione = popolazione;
 		
 		this.sesso = Sesso.Donna;
@@ -41,6 +43,11 @@ public class Prudente implements Donna {
 	@Override
 	public Sesso getSesso() {
 		return this.sesso;
+	}
+	
+	@Override
+	public Evoluzione getEvoluzione() {
+		return this.evoluzione;
 	}
 
 	@Override

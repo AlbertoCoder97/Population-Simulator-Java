@@ -13,6 +13,7 @@ public class Spregiudicata implements Donna {
 	
 	private Random random = new Random();
 	
+	private Evoluzione evoluzione;
 	private Popolazione popolazione;
 	private Sesso sesso;
 	private Tipo tipo;
@@ -20,7 +21,9 @@ public class Spregiudicata implements Donna {
 	private int geneRecessivo;
 	private int numerofigli;
 	
-	public Spregiudicata(Popolazione popolazione, int geneDominante, int geneRecessivo) {
+	public Spregiudicata(Evoluzione evoluzione, Popolazione popolazione, int geneDominante, int geneRecessivo) {
+		
+		this.evoluzione = evoluzione;
 		this.popolazione = popolazione;
 		this.sesso = Sesso.Donna;
 		this.tipo = Tipo.Spregiudicata;
@@ -39,6 +42,11 @@ public class Spregiudicata implements Donna {
 	@Override
 	public Sesso getSesso() {
 		return this.sesso;
+	}
+	
+	@Override
+	public Evoluzione getEvoluzione() {
+		return this.evoluzione;
 	}
 
 	@Override

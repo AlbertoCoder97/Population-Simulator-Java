@@ -1,21 +1,30 @@
 package main;
 
 
-import java.util.Timer;
-
-
-import classi.Popolazione;
-import utils.PopulationUtils;
+import classi.Evoluzione;
+import utils.EvolutionUtils;
 
 public class main {
 	
-	//Timer che permette l' aggiornamento della popolazione
-	public static Timer timerupdate = new Timer();
+	//Tipi di persone
+	public enum Sesso {Uomo,Donna}
+	public enum Tipo {Morigerato, Avventuriero, Prudente, Spregiudicata}
+	
+	//Valori MAPS
+	public static final int A = 15; //A indica il premio per aver avuto figli
+	public static final int B = 20; //B indica il costo del crescere i figli
+	public static final int C = 3; //C indica il costo del corteggiamento
+	
+	public static final int TOLLERANZA_PERC = 10; //Tolleranza nella differenza della percentuale dei Morigerati e Prudenti
+	public static final int GENERAZIONI_CHECK = 10; //Numero di generazioni da controllare
+	
+	public static final int GENERAZIONI_MASSIME = 200;
+	
+	public static int counter = 0;
 	
 	public static void main(String[] args) {
 		
-		//Inizializza la popolazione
-		Popolazione popolazione = new Popolazione();
-		PopulationUtils.inizio(popolazione);
+		EvolutionUtils.setup(new Evoluzione());
+		
 	}
 }

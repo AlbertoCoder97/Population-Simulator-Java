@@ -12,6 +12,7 @@ import utils.HumanUtils;
 
 public class Avventuriero implements Uomo{
 	
+	private Evoluzione evoluzione;
 	private Popolazione popolazione;
 	private Sesso sesso;
 	private Tipo tipo;
@@ -23,7 +24,9 @@ public class Avventuriero implements Uomo{
 	
 	private Random random = new Random();
 
-	public Avventuriero(Popolazione popolazione, int geneDominante, int geneRecessivo) {
+	public Avventuriero(Evoluzione evoluzione, Popolazione popolazione, int geneDominante, int geneRecessivo) {
+		
+		this.evoluzione = evoluzione;
 		this.popolazione = popolazione;
 		this.sesso = Sesso.Uomo;
 		this.tipo = Tipo.Avventuriero;
@@ -45,6 +48,11 @@ public class Avventuriero implements Uomo{
 	@Override
 	public Sesso getSesso() {
 		return this.sesso;
+	}
+	
+	@Override
+	public Evoluzione getEvoluzione() {
+		return this.evoluzione;
 	}
 
 	@Override

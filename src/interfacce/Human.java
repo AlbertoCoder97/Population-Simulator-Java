@@ -1,5 +1,6 @@
 package interfacce;
 
+import classi.Evoluzione;
 import classi.Popolazione;
 import main.main.Sesso;
 import main.main.Tipo;
@@ -14,6 +15,9 @@ public interface Human {
 	
 	//Restituisce la popolazione dell' essere umano
 	public Popolazione getPopolazione();
+	
+	//Restituisce l' evoluzione di cui fa parte
+	public Evoluzione getEvoluzione();
 	
 	//Restituisce la percentuale del gene dominante
 	public int getPercDominante();

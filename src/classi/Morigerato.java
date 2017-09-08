@@ -10,7 +10,7 @@ import utils.HumanUtils;
 
 public class Morigerato implements Uomo{
 	
-	
+	private Evoluzione evoluzione;
 	private Popolazione popolazione;
 	private Sesso sesso;
 	private Tipo tipo;
@@ -20,7 +20,9 @@ public class Morigerato implements Uomo{
 	private Donna moglie;
 	
 	
-	public Morigerato(Popolazione popolazione, int geneDominante, int geneRecessivo) {
+	public Morigerato(Evoluzione evoluzione, Popolazione popolazione, int geneDominante, int geneRecessivo) {
+		
+		this.evoluzione = evoluzione;
 		this.popolazione = popolazione;
 		this.sesso = Sesso.Uomo;
 		this.tipo = Tipo.Morigerato;
@@ -40,6 +42,11 @@ public class Morigerato implements Uomo{
 	@Override
 	public Sesso getSesso() {
 		return this.sesso;
+	}
+	
+	@Override
+	public Evoluzione getEvoluzione() {
+		return this.evoluzione;
 	}
 
 	@Override
