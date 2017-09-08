@@ -60,7 +60,7 @@ public class EvolutionUtils {
 				}
 			}
 			
-			if (counterMorigerati >= 9 && counterPrudenti >= 9) {
+			if (counterMorigerati >= main.main.GENERAZIONI_CHECK - 1 && counterPrudenti >= main.main.GENERAZIONI_CHECK - 1) {
 				System.out.println("\n L' evoluzione è avvenuta con successo!");
 				return true;
 			}else {

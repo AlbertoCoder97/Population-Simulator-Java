@@ -16,7 +16,7 @@ public class PopulationUtils {
 	
 	public static void setupPopolazione(Popolazione popolazione) {
 		Evoluzione evoluzione = popolazione.getEvoluzione();
-		for (int i = 0; i <= 100; i++) {
+		for (int i = 0; i <= main.main.GRANDEZZA_POPOLAZIONE_INIZIALE; i++) {
 			aggiungiPersona(popolazione, new Morigerato(evoluzione, popolazione,50,50));
 			aggiungiPersona(popolazione, new Avventuriero(evoluzione, popolazione,50,50));
 			aggiungiPersona(popolazione, new Prudente(evoluzione, popolazione,50,50));
