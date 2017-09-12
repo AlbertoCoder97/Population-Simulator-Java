@@ -88,8 +88,11 @@ public class Prudente implements Donna {
 	@Override
 	public void premioFigli(Human uomo) {
 		if (uomo.getTipo() == Tipo.Morigerato) {
-			this.geneDominante += ((main.main.A - main.main.B)/(2 - main.main.C));
-			this.geneRecessivo -= ((main.main.A - main.main.B)/(2 - main.main.C));
+			int premio = ((main.main.A - main.main.B)/(2 - main.main.C));
+			if (!((this.geneDominante + premio) > 100)) {
+				this.geneDominante += premio;
+				this.geneRecessivo -= premio;
+			}
 		}
 	}
 

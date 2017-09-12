@@ -18,7 +18,7 @@ public class Morigerato implements Uomo{
 	private int geneRecessivo;
 	private int numerofigli;
 	private Donna moglie;
-	
+
 	
 	public Morigerato(Evoluzione evoluzione, Popolazione popolazione, int geneDominante, int geneRecessivo) {
 		
@@ -70,13 +70,20 @@ public class Morigerato implements Uomo{
 	
 	@Override
 	public void premioFigli(Human donna) {
+		
 		if (donna.getTipo() == Tipo.Prudente) {
-			this.geneDominante += ((main.main.A - main.main.B)/(2-main.main.C));
-			this.geneRecessivo -= ((main.main.A - main.main.B)/(2-main.main.C));
+			int premioprudente = ((main.main.A - main.main.B)/(2-main.main.C));
+			if (!((this.geneDominante + premioprudente) > 100)) {
+				this.geneDominante += premioprudente;
+				this.geneRecessivo -= premioprudente;
+			}
 		}
 		if (donna.getTipo() == Tipo.Spregiudicata) {
-			this.geneDominante += ((main.main.A - main.main.B)/2);
-			this.geneRecessivo -= ((main.main.A - main.main.B)/2);
+			int premiospregiudicata = ((main.main.A - main.main.B)/2);
+			if (!((this.geneDominante + premiospregiudicata) > 100)) {
+				this.geneDominante += premiospregiudicata;
+				this.geneRecessivo -= premiospregiudicata;
+			}
 		}
 	}
 

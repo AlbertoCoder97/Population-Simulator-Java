@@ -14,6 +14,8 @@ import classi.Evoluzione;
 
 public class PopulationUtils {
 	
+	public static int counter = 0;
+	
 	public static void setupPopolazione(Popolazione popolazione) {
 		Evoluzione evoluzione = popolazione.getEvoluzione();
 		for (int i = 0; i <= main.main.GRANDEZZA_POPOLAZIONE_INIZIALE; i++) {
@@ -56,7 +58,8 @@ public class PopulationUtils {
 	//Questo metodo termina l' esecuzione di una generazione e avvia la successiva
 	public static void finePopolazione(Popolazione popolazione) {
 		if (popolazione.getListaDonne().size() == 0 || popolazione.getListaUomini().size() == 0) {
-			if (main.main.counter < main.main.GENERAZIONI_MASSIME) {
+			if (counter < main.main.GENERAZIONI_MASSIME) {
+				counter++;
 				System.out.println("\n Generazione finita, inizia la prossima \n");
 				Evoluzione evoluzione = popolazione.getEvoluzione();
 				Popolazione successiva = EvolutionUtils.ottieniGenerazioneSuccessiva(evoluzione, popolazione);

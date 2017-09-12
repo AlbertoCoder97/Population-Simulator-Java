@@ -71,12 +71,18 @@ public class Spregiudicata implements Donna {
 	@Override
 	public void premioFigli(Human uomo) {
 		if (uomo.getTipo() == Tipo.Morigerato) {
-			this.geneDominante += ((main.main.A-main.main.B)/2);
-			this.geneRecessivo -= ((main.main.A-main.main.B)/2);
+			int premiomorigerato = ((main.main.A-main.main.B)/2);
+			if (!((this.geneDominante + premiomorigerato) > 100)) {
+				this.geneDominante += premiomorigerato;
+				this.geneRecessivo -= premiomorigerato;
+			}
 		}
 		if (uomo.getTipo() == Tipo.Avventuriero) {
-			this.geneDominante += (main.main.A - main.main.B);
-			this.geneRecessivo -= (main.main.A - main.main.B);
+			int premioavventuriero = (main.main.A - main.main.B);
+			if (!((this.geneDominante + premioavventuriero) > 100)) {
+			this.geneDominante += premioavventuriero;
+			this.geneRecessivo -= premioavventuriero;
+			}
 		}
 		
 	}

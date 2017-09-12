@@ -116,9 +116,9 @@ public class HumanUtils {
 				}
 			}else {
 				if (donna.getTipo() == Tipo.Prudente) {
-					PopulationUtils.aggiungiPersona(popolazione, new Spregiudicata(evoluzione, popolazione, donna.getPercRecessivo(), donna.getPercDominante()));
+					PopulationUtils.aggiungiPersona(popolazione, new Spregiudicata(evoluzione, popolazione, donna.getPercDominante(), donna.getPercRecessivo()));
 				}else {
-					PopulationUtils.aggiungiPersona(popolazione, new Prudente(evoluzione, popolazione, donna.getPercRecessivo(), donna.getPercDominante()));
+					PopulationUtils.aggiungiPersona(popolazione, new Prudente(evoluzione, popolazione, donna.getPercDominante(), donna.getPercRecessivo()));
 				}
 			}
 		}else {
@@ -130,9 +130,9 @@ public class HumanUtils {
 				}
 			}else {
 				if (uomo.getTipo() == Tipo.Morigerato) {
-					PopulationUtils.aggiungiPersona(popolazione, new Avventuriero(evoluzione, popolazione, uomo.getPercRecessivo(), uomo.getPercDominante()));
+					PopulationUtils.aggiungiPersona(popolazione, new Avventuriero(evoluzione, popolazione, uomo.getPercDominante(), uomo.getPercRecessivo()));
 				}else {
-					PopulationUtils.aggiungiPersona(popolazione, new Morigerato(evoluzione, popolazione, uomo.getPercRecessivo(), uomo.getPercDominante()));
+					PopulationUtils.aggiungiPersona(popolazione, new Morigerato(evoluzione, popolazione, uomo.getPercDominante(), uomo.getPercRecessivo()));
 				}
 			}
 		}

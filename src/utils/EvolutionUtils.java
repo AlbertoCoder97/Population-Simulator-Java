@@ -41,7 +41,7 @@ public class EvolutionUtils {
 	public static boolean stabilitaEvolutiva(Evoluzione evoluzione) {
 		ArrayList<Integer> listaPercMorigerati = evoluzione.getListaPercMorigerati();
 		ArrayList<Integer> listaPercPrudenti = evoluzione.getListaPercPrudenti();
-		if (listaPercMorigerati.size() > main.main.GENERAZIONI_CHECK+1 && listaPercPrudenti.size() > main.main.GENERAZIONI_CHECK + 1) {
+		if (listaPercMorigerati.size() > main.main.GENERAZIONI_CHECK && listaPercPrudenti.size() > main.main.GENERAZIONI_CHECK) {
 			int counterMorigerati = 0;
 			int counterPrudenti = 0;
 			
@@ -49,19 +49,25 @@ public class EvolutionUtils {
 			int ultimoPrudenti = listaPercPrudenti.get(listaPercPrudenti.size() - 1);
 			
 			for (int indice = 1; indice <= main.main.GENERAZIONI_CHECK; indice++) {
-				if (Math.abs(ultimoMorigerati - listaPercMorigerati.get(listaPercMorigerati.size() - 1 - indice)) < main.main.TOLLERANZA_PERC) {
+				if (Math.abs(ultimoMorigerati - (listaPercMorigerati.get(listaPercMorigerati.size() - 1 - indice))) <= main.main.TOLLERANZA_PERC) {
 					counterMorigerati += 1;
 				}
 			}
 			
 			for (int indice = 1; indice <= main.main.GENERAZIONI_CHECK; indice++) {
-				if (Math.abs(ultimoPrudenti - listaPercPrudenti.get(listaPercPrudenti.size() - 1 - indice)) < main.main.TOLLERANZA_PERC) {
+				if (Math.abs(ultimoPrudenti - (listaPercPrudenti.get(listaPercPrudenti.size() - 1 - indice))) <= main.main.TOLLERANZA_PERC) {
 					counterPrudenti += 1;
 				}
 			}
 			
 			if (counterMorigerati >= main.main.GENERAZIONI_CHECK - 1 && counterPrudenti >= main.main.GENERAZIONI_CHECK - 1) {
-				System.out.println("\n L' evoluzione è avvenuta con successo!");
+				System.out.println("\n L' evoluzione è avvenuta con successo alla " + PopulationUtils.counter + "° generazione!");
+				for (int indice = listaPercMorigerati.size() - 1; indice >= (listaPercMorigerati.size() - main.main.GENERAZIONI_CHECK); indice--) {
+					System.out.println("Percentuale Morigerati Generazione N° " + indice + " : " + listaPercMorigerati.get(indice) );
+				}
+				for (int indice = listaPercPrudenti.size() - 1; indice >= (listaPercPrudenti.size() - main.main.GENERAZIONI_CHECK); indice--) {
+					System.out.println("Percentuale Prudenti Generazione N° " + indice + " : " + listaPercPrudenti.get(indice) );
+				}
 				return true;
 			}else {
 				return false;

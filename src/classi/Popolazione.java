@@ -47,7 +47,7 @@ public class Popolazione {
 				counter +=1;
 			}
 		}
-		return ((counter * this.listauomini.size())/100);
+		return ((counter * 100)/this.listauomini.size());
 	}
 	
 	//Questo metodo restituisce la percentuale delle donne di Tipo Prudenti
@@ -58,7 +58,7 @@ public class Popolazione {
 				counter +=1;
 			}
 		}
-		return ((counter * this.listadonne.size())/100);
+		return ((counter * 100)/this.listadonne.size());
 	}	
 	
 	public Evoluzione getEvoluzione() {
@@ -87,7 +87,6 @@ public class Popolazione {
 	
 	//Questo metodo starta il timer della popolazione che aggiorna la popolazione e controlla se si è raggiunta la stabilità e se la popolazione debba essere terminata
 	public void startTimer() {
-		main.main.counter += 1;
 		EvolutionUtils.aggiungiPercentuali(this.evoluzione, this);
 		if (EvolutionUtils.stabilitaEvolutiva(this.evoluzione)) {
 			EvolutionUtils.fineEvoluzione(this.evoluzione);
@@ -100,7 +99,7 @@ public class Popolazione {
 					popolazione.update();
 					PopulationUtils.finePopolazione(popolazione);
 				}
-			}, 0,10);
+			}, 0,1);
 		}
 	}
 	

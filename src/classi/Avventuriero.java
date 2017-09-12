@@ -73,8 +73,11 @@ public class Avventuriero implements Uomo{
 	@Override
 	public void premioFigli(Human donna) {
 		if(donna.getTipo() == Tipo.Spregiudicata) {
-			this.geneDominante += main.main.A;
-			this.geneRecessivo -= main.main.A;
+			if (!((this.geneDominante + main.main.A) > 100)) {
+				this.geneDominante += main.main.A;
+				this.geneRecessivo -= main.main.A;
+			}
+			
 		}
 	}
 
