@@ -35,7 +35,7 @@ public class Avventuriero implements Uomo{
 		this.geneRecessivo = geneRecessivo;
 		
 		this.numerofigli = 1;
-		this.avventure = random.nextInt(21);
+		this.avventure = random.nextInt(20);
 		
 		this.moglie = null;
 	}
